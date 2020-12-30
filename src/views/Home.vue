@@ -74,7 +74,7 @@ export default {
     height: 35px;
     outline: none;
     border: none;
-    background: rgba(180, 180, 180, 0.123);
+    background: rgba(180, 180, 180, 0.172);
     padding: 0 80px 0 20px;
     border-radius: 20px;
     font-size: 15px;

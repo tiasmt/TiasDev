@@ -2,10 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Portfolio from "../views/Portfolio.vue";
-import Technology from "../views/Technology.vue";
-import Books from "../views/Books.vue";
-import Knowledge from "../views/Knowledge.vue";
-import Algorithms from "../views/Algorithms.vue";
 
 Vue.use(VueRouter);
 
@@ -19,26 +15,6 @@ const routes = [
     path: "/Portfolio",
     name: "Portfolio",
     component: Portfolio
-  },
-  {
-    path: "/Technology",
-    name: "Technology",
-    component: Technology
-  },
-  {
-    path: "/Books",
-    name: "Books",
-    component: Books
-  },
-  {
-    path: "/Knowledge",
-    name: "Knowledge",
-    component: Knowledge
-  },
-  {
-    path: "/Algorithms",
-    name: "Algorithms",
-    component: Algorithms
   }
   // {
   //   path: "/about",

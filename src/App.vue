@@ -17,14 +17,13 @@ body {
 }
 
 html {
-  // font-family: 'Montserrat';
-  font-family: "Open Sans", Helvetica, arial, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 30px;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
   color: #2c3e50;
-  background-color: #f4f6f8;
+  background-color: transparent;
 }
 
 .content {

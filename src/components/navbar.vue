@@ -8,28 +8,28 @@
         ><img src="../assets/icons/twitter.svg" alt="Kiwi standing on oval"
       /></a>
     </div>
+    <div class="overview">
+      <h1>Tias Finks</h1>
+      Curation of ideas by Tias. <br>
+      Feel free to visit my portfolio here. <br>
+      Click on any of the below to filter according to the specific criteria.
+
+    </div>
     <ul>
       <li>
-        <router-link class="home" to="/">Home</router-link>
+        <router-link class="home" to="/">All</router-link>
       </li>
       <li>
-        <router-link class="portfolio" to="/portfolio">Portfolio</router-link>
+        <a class="technology">Technology</a>
       </li>
       <li>
-        <router-link class="technology" to="/technology"
-          >Technology</router-link
-        >
+        <a class="knowledge">Knowledge</a>
       </li>
       <li>
-        <router-link class="knowledge" to="/knowledge">Knowledge</router-link>
+        <a class="algorithms">Algorithms</a>
       </li>
       <li>
-        <router-link class="algorithms" to="/algorithms"
-          >Algorithms</router-link
-        >
-      </li>
-      <li>
-        <router-link class="books" to="/books">Books</router-link>
+        <a class="books">Books</a>
       </li>
     </ul>
   </nav>
@@ -43,14 +43,14 @@ export default {};
 .navbar {
   position: fixed;
   height: 100vh;
-  width: 20%;
+  width: 35%;
   border-right: 1px solid rgba(104, 104, 104, 0.1);
-  font-size: 20px;
+  font-size: 65%;
 }
 ul {
   list-style-type: none;
   position: relative;
-  top: 30%;
+  top: 10%;
   left: 10%;
 }
 
@@ -66,14 +66,16 @@ a:visited {
 
 a {
   text-decoration: none;
-  transition: 0.1s;
+  transition: 0.5s;
+  cursor: pointer;
+  color: rgb(20, 19, 19);
 }
 
 li a::before {
   height: 0px;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  margin-top: 4px;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  margin-top: 3px;
   margin-right: 4%;
   float: left;
   content: " ";
@@ -102,10 +104,11 @@ li a:hover::before {
   width: 2px;
   height: 18px;
   content: " ";
+  margin-left: 3%;
 }
 
 li {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 img {
@@ -115,6 +118,11 @@ img {
 
 .icons {
   background-color: rgba(104, 104, 104, 0.1);
-  height: 4%;
-}</style
->>
+  height: 6%;
+}
+
+.overview {
+  margin-top: 15%;
+  text-align: center;
+}
+</style>

@@ -38,7 +38,7 @@ export default {
   grid-template-columns: 50% 50%;
   grid-gap: 1% 1%;
   margin-top: 10%;
-  margin-left: 25%;
+  margin-left: 35%;
 }
 
 .grid-item {
@@ -49,27 +49,27 @@ export default {
 .grid-item img {
   border-radius: 5px;
   min-height: 300px;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: transform 0.5s, opacity 0.5s;
   transform: scale(1.2);
   &:hover {
-    opacity: 0.9;
+    opacity: 1.0;
     transform: scale(1.1);
     cursor: pointer;
   }
 }
 
 .grid-item:hover .portfolio-item-text {
-  color: #973434;
+  color: #f80b0bc1;
 }
 
 .portfolio-item-text {
-  color: #97343478;
+  color: #f80b0bc1;
   z-index: 999;
   position: relative;
   width: 100%;
   top: 40%;
-  left: 20%;
-  font-size: 95%;
+  left: 15%;
+  font-size: 85%;
 }
 </style>
