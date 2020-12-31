@@ -1,41 +1,162 @@
 <template>
   <div>
-      <h1>Starting a blog</h1>
-      <h2 class="date">01/01/20201</h2>
-      <div class="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus qui sequi rem non aperiam veritatis. Nisi, aspernatur doloribus quaerat doloremque quibusdam nemo nihil sunt aperiam, beatae odio et vel soluta.
-      </div>
+    <div class="icon-border top-left">
+      <span class="icon back" @click="$router.go(-1)"></span>
+    </div>
+    <h1>Starting a blog</h1>
+    <h2 class="date">01/01/2020</h2>
+    <div class="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus qui
+      sequi rem non aperiam veritatis. Nisi, aspernatur doloribus quaerat
+      doloremque quibusdam nemo nihil sunt aperiam, beatae odio et vel soluta.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae maxime
+      nulla quas dolor eius quaerat alias quasi laborum similique, amet, ullam
+      distinctio nisi fuga architecto! Eveniet voluptas laudantium quo iure!
+      <br><br>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+      tempore aspernatur esse, et velit cupiditate blanditiis officia magni
+      praesentium placeat id tenetur earum amet, iste, aliquid repellendus
+      suscipit odio perferendis? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Eveniet deserunt non magnam. Earum labore blanditiis
+      repellendus ad nesciunt explicabo nemo culpa accusamus, ut reiciendis
+      repudiandae, nostrum porro ea, est voluptate! Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit. Voluptatem provident blanditiis similique
+      soluta temporibus tempora. Laboriosam explicabo, corrupti exercitationem
+      amet illo voluptatem ipsam eligendi sit laudantium culpa repudiandae
+      doloremque illum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Voluptatem totam natus eum? Molestiae dolorem fugit alias atque reiciendis
+      iste a libero, voluptatibus, nostrum aut, quo nesciunt quas omnis sunt
+      quasi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+      totam natus eum? Molestiae dolorem fugit alias atque reiciendis iste a
+      libero, voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi?
+      <br><br>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem totam
+      natus eum? Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
+      Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
+      Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
+      Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
+      Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
+      Molestiae dolorem fugit alias atque reiciendis iste a libero,
+      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi?
+    </div>
+    <div id="up-button" class="icon-border bottom-right" @click="ScrollToTop()">
+      <span class="icon up"></span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      backToTopButton: null,
+    };
+  },
+  mounted() {
+    this.backToTopButton = document.getElementById("up-button");
+    window.addEventListener("scroll", this.HandleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.HandleScroll);
+  },
+  methods: {
+    HandleScroll() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        this.backToTopButton.style.opacity = 1;
+      } else {
+        this.backToTopButton.style.opacity = 0;
+      }
+    },
+    ScrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    h1{
-        margin-top: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        text-transform: uppercase;
-        float: left;
-        font-size: 140%;
-    }
+h1 {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 4%;
+  text-transform: uppercase;
+  float: left;
+  font-size: 140%;
+}
 
-    .date {
-        float: right;
-        position: relative;
-        color: rgb(68, 65, 65);
-        font-size: 60%;
-        margin-right: 15%;
-        margin-top: 12%;
-    }
+.date {
+  float: right;
+  position: relative;
+  color: rgba(68, 65, 65, 0.72);
+  font-size: 60%;
+  margin-right: 15%;
+  margin-top: 12%;
+}
 
-    .content {
-        margin-left: 10%;
-        font-size: 70%;
-        float: left;
-    }
+.content {
+  margin-left: 10%;
+  font-size: 70%;
+  float: left;
+}
+
+.icon-border {
+  background: rgba(43, 40, 40, 0.549);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: 500ms;
+  position: sticky;
+}
+
+.top-left {
+  margin-top: 2%;
+  margin-left: 2%;
+  position: fixed;
+}
+
+.back {
+  mask: url("../assets/icons/left-arrow.svg");
+  margin-left: 20%;
+  margin-top: 20%;
+}
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: rgb(233, 228, 228);
+  mask-size: cover;
+}
+
+.icon-border:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.bottom-right {
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+  opacity: 0;
+  transition: 500ms;
+}
+
+.up {
+  mask: url("../assets/icons/up-arrow.svg");
+  margin-left: 20%;
+  margin-top: 20%;
+}
 </style>
