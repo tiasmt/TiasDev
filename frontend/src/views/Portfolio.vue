@@ -53,7 +53,6 @@ export default {
   transition: transform 0.5s, opacity 0.5s;
   transform: scale(1.2);
   &:hover {
-    opacity: 1.0;
     transform: scale(1.1);
     cursor: pointer;
   }

@@ -1,18 +1,11 @@
 <template lang="html">
   <nav class="navbar">
-    <div class="icons">
-      <a href="https://github.com/tiasmt"
-        ><img src="../assets/icons/github.svg" alt="Kiwi standing on oval"
-      /></a>
-      <a href="https://twitter.com/tiiaasss"
-        ><img src="../assets/icons/twitter.svg" alt="Kiwi standing on oval"
-      /></a>
-    </div>
+   
     <div class="overview">
       <h1>Tias Finks</h1>
-      Curation of ideas by Tias. <br>
-      Feel free to visit my portfolio here. <br>
-      Click on any of the below to filter according to the specific criteria.
+      Curation of thoughts. <br><br>
+      Feel free to visit my portfolio here. <br><br>
+      Click on any of the below to filter the blog posts according to the specific criteria.
 
     </div>
     <ul>
@@ -32,6 +25,14 @@
         <a class="books">Books</a>
       </li>
     </ul>
+     <div class="icons">
+      <a href="https://github.com/tiasmt"
+        ><img src="../assets/icons/github.svg" alt="Kiwi standing on oval"
+      /></a>
+      <a href="https://twitter.com/tiiaasss"
+        ><img src="../assets/icons/twitter.svg" alt="Kiwi standing on oval"
+      /></a>
+    </div>
   </nav>
 </template>
 
@@ -51,7 +52,7 @@ ul {
   list-style-type: none;
   position: relative;
   top: 10%;
-  left: 10%;
+  left: 20%;
 }
 
 a:link {
@@ -81,6 +82,42 @@ li a::before {
   content: " ";
 }
 
+li a:hover::before {
+  width: 2px;
+  height: 18px;
+  content: " ";
+  margin-left: 3px;
+}
+
+a:active {
+  margin-left: 3px;
+}
+
+li {
+  margin-top: 5%;
+}
+
+img {
+  width: 12%;
+  margin-left: 22%;
+  margin-top: 1%;
+}
+
+.icons {
+  background-color: rgba(104, 104, 104, 0.1);
+  height: 6%;
+  bottom: 0%;
+  position: absolute;
+  width: 100%;
+}
+
+.overview {
+  margin-top: 15%;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
 .home::before {
   background-color: rgb(236, 75, 75);
 }
@@ -98,31 +135,5 @@ li a::before {
 }
 .books::before {
   background-color: rgb(47, 47, 46);
-}
-
-li a:hover::before {
-  width: 2px;
-  height: 18px;
-  content: " ";
-  margin-left: 3%;
-}
-
-li {
-  margin-top: 5%;
-}
-
-img {
-  width: 12%;
-  margin-left: 22%;
-}
-
-.icons {
-  background-color: rgba(104, 104, 104, 0.1);
-  height: 6%;
-}
-
-.overview {
-  margin-top: 15%;
-  text-align: center;
 }
 </style>

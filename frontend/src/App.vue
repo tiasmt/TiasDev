@@ -31,37 +31,6 @@ html {
   width: 80%;
 }
 
-.home span {
-  &::before {
-    background-color: #51c557c9;
-  }
-}
-.portfolio span {
-  &::before {
-    background-color: rgb(75, 158, 236);
-  }
-}
-.technology span {
-  &::before {
-    background-color: rgb(207, 58, 58);
-  }
-}
-.knowledge span {
-  &::before {
-    background-color: rgb(78, 163, 106);
-  }
-}
-.algorithms span {
-  &::before {
-    background-color: rgba(228, 166, 52, 0.938);
-  }
-}
-.books span {
-  &::before {
-    background-color: rgba(47, 47, 46, 0.52);
-  }
-}
-
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* Styles */
