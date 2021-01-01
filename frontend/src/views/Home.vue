@@ -1,6 +1,5 @@
 <template lang="html">
   <div>
-    <vue-router />
     <navbar></navbar>
     <div class="content">
       <div class="search-container">

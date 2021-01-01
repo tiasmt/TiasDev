@@ -9,19 +9,19 @@
 
     </div>
     <ul>
-      <li>
+      <li @click="SetActive">
         <router-link class="home" to="/">All</router-link>
       </li>
-      <li>
+      <li @click="SetActive">
         <a class="technology">Technology</a>
       </li>
-      <li>
+      <li @click="SetActive">
         <a class="knowledge">Knowledge</a>
       </li>
-      <li>
+      <li @click="SetActive">
         <a class="algorithms">Algorithms</a>
       </li>
-      <li>
+      <li @click="SetActive">
         <a class="books">Books</a>
       </li>
     </ul>
@@ -37,7 +37,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+   methods: {
+      SetActive(event) {
+        var list = document.getElementsByTagName("LI");
+        list.forEach(element => {
+          if(element.firstChild.classList.contains("filter-on"))
+            element.firstChild.classList.remove("filter-on");
+        });
+        var element = event.target; 
+        element.classList.add("filter-on");
+      }
+   }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -116,6 +128,13 @@ img {
   text-align: center;
   width: 90%;
   margin-left: 5%;
+}
+
+.filter-on::before {
+  width: 2px;
+  height: 18px;
+  content: " ";
+  margin-left: 3px;
 }
 
 .home::before {
