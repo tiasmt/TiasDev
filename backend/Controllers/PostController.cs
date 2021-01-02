@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("rest/api/latest/")]
     public class PostController : ControllerBase
     {
         private static readonly Post[] _posts = new Post[] {
@@ -32,7 +32,7 @@ namespace backend.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IEnumerable<Post> GetAll()
         {
             return _posts;
