@@ -8,14 +8,14 @@
       </div>
       <div class="post-container">
         <ul class="post">
-          <li v-for="postItem in postItems" :class="postItem.Class" :key="postItem.id">
+          <li v-for="postItem in filteredPosts" :class="postItem.category" class="post-item" :key="postItem.id">
             <img class="image" src="./../assets/images/portfolio/mtdir.jpg" alt="" />
             <div class="post-text">
               <span>
-                <a href>{{ postItem.Title }}</a>
+                <a href>{{ postItem.title }}</a>
               </span>
               <div class="summary">
-                Summary
+                {{ postItem.summary }}
               </div>
             </div>
           </li>
@@ -30,38 +30,46 @@ import navbar from "./../components/navbar";
 export default {
   name: "Home",
   components: {
-    navbar
+    navbar,
+  },
+  computed: {
+    filteredPosts() {
+      return  this.$store.state.filteredPosts;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("GetPosts");
   },
   data() {
     return {
       postItems: [
         {
           Title: "Post 1",
-          Class: "post-item home"
+          Class: "post-item home",
         },
         {
           Title: "Post 2",
-          Class: "post-item portfolio"
+          Class: "post-item portfolio",
         },
         {
           Title: "Post 3",
-          Class: "post-item technology"
+          Class: "post-item technology",
         },
         {
           Title: "Post 4",
-          Class: "post-item knowledge"
+          Class: "post-item knowledge",
         },
         {
           Title: "Post 5",
-          Class: "post-item algorithms"
+          Class: "post-item algorithms",
         },
         {
           Title: "Post 6",
-          Class: "post-item books"
-        }
-      ]
+          Class: "post-item books",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -102,8 +110,6 @@ export default {
   margin-top: 1%;
 }
 
-
-
 li {
   list-style-type: none;
   color: rgba(209, 46, 46, 0.5);
@@ -127,8 +133,6 @@ span {
   }
 }
 
-
-
 a:link {
   text-decoration: none;
   color: rgb(20, 19, 19);
@@ -149,26 +153,33 @@ a {
   width: 50vw;
   cursor: pointer;
   &::after {
-     content: " ";
-     width: 80%;
-     height: 1px;
-     display: inline-block;
-     background:#29282812;
-   }
+    content: " ";
+    width: 80%;
+    height: 1px;
+    display: inline-block;
+    background: #29282812;
+  }
+}
+
+ul li {
+  opacity: 1;
+  transition: 300ms;
 }
 
 ul:hover li {
   opacity: 0.5;
-  transition: 300ms;
 }
 ul li:hover {
   opacity: 1;
+  img {
+    padding: 10px;
+  }
   &::after {
     opacity: 0.7;
-   }
+  }
 }
 
-.home span {
+.all span {
   &::before {
     background-color: #51c557c9;
   }
@@ -199,29 +210,28 @@ ul li:hover {
   }
 }
 
-
-.home img {
- border-color:#51c557c9;
+.all img {
+  border-color: #51c557c9;
 }
 .portfolio img {
-  border-color:rgb(75, 158, 236);
+  border-color: rgb(75, 158, 236);
 }
 .technology img {
- border-color:rgb(207, 58, 58);
+  border-color: rgb(207, 58, 58);
 }
 .knowledge img {
-  border-color:rgb(78, 163, 106);
+  border-color: rgb(78, 163, 106);
 }
 .algorithms img {
-  border-color:rgba(228, 166, 52, 0.938);
+  border-color: rgba(228, 166, 52, 0.938);
 }
 .books img {
- border-color:rgba(47, 47, 46, 0.52);
+  border-color: rgba(47, 47, 46, 0.52);
 }
 
 .summary {
   color: rgb(58, 54, 54);
-  font-size: 80%;;
+  font-size: 80%;
 }
 
 .image {
@@ -231,7 +241,10 @@ ul li:hover {
   width: 30px;
   float: left;
   margin-right: 2%;
+  transition: 300ms;
 }
+
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {

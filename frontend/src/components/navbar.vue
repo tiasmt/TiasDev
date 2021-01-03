@@ -10,7 +10,7 @@
     </div>
     <ul>
       <li @click="SetActive">
-        <router-link class="home" to="/">All</router-link>
+        <router-link class="all" to="/">All</router-link>
       </li>
       <li @click="SetActive">
         <a class="technology">Technology</a>
@@ -38,15 +38,23 @@
 
 <script>
 export default {
+   data() {
+    return {
+    };
+  },
    methods: {
       SetActive(event) {
         var list = document.getElementsByTagName("LI");
+        var filter = event.target.innerText.toLowerCase();
         list.forEach(element => {
           if(element.firstChild.classList.contains("filter-on"))
             element.firstChild.classList.remove("filter-on");
         });
         var element = event.target; 
         element.classList.add("filter-on");
+        this.$store.dispatch("AddFilter", {
+        filter: filter
+      });
       }
    }
 };
@@ -137,7 +145,7 @@ img {
   margin-left: 3px;
 }
 
-.home::before {
+.all::before {
   background-color: rgb(236, 75, 75);
 }
 .portfolio::before {
