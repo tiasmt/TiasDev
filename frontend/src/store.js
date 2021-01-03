@@ -14,6 +14,7 @@ export default new Vuex.Store({
     },
     mutations: {
         addFilter(state, filter) {
+            state.filter = filter.filter;
             if (filter.filter == "all") {
                 state.filteredPosts = state.allPosts.posts;
             } else {
@@ -28,13 +29,14 @@ export default new Vuex.Store({
             state.filteredPosts = posts.posts;
         },
         searchPosts(state, search) {
+            if (state.allPosts.posts) {
+                var filteredPosts = state.allPosts.posts.filter(function (el) {
+                    return ((el.category.toLowerCase().includes(search.search) ||
+                        el.title.toLowerCase().includes(search.search) ||
+                        el.summary.toLowerCase().includes(search.search)) && (el.category == state.filter || state.filter == "all" || state.filter == ""));
 
-            var filteredPosts = state.allPosts.posts.filter(function (el) {
-                return el.category.toLowerCase().includes(search.search) ||
-                    el.title.toLowerCase().includes(search.search) ||
-                    el.summary.toLowerCase().includes(search.search);
-
-            });
+                });
+            }
             state.filteredPosts = filteredPosts;
         },
     },

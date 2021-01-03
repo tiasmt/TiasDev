@@ -35,11 +35,9 @@ export default {
   },
   computed: {
     filteredPosts() {
-      if (this.Search != "") {
-        this.$store.dispatch("SearchPosts", {
-          search: this.Search.toLowerCase(),
-        });
-      }
+      this.$store.dispatch("SearchPosts", {
+        search: this.Search.toLowerCase(),
+      });
       return this.$store.state.filteredPosts;
     },
   },
