@@ -10,7 +10,7 @@
     </div>
     <ul>
       <li @click="SetActive">
-        <router-link class="all" to="/">All</router-link>
+        <router-link class="all filter-on" to="/">All</router-link>
       </li>
       <li @click="SetActive">
         <a class="technology">Technology</a>

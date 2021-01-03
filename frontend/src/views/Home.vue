@@ -3,23 +3,24 @@
     <navbar></navbar>
     <div class="content">
       <div class="search-container">
-        <input type="text" placeholder="Search..." />
+        <input v-model="Search" type="text" placeholder="Search..." />
         <div class="search"></div>
       </div>
       <div class="post-container">
-        <ul class="post">
-          <li v-for="postItem in filteredPosts" :class="postItem.category" class="post-item" :key="postItem.id">
-            <img class="image" src="./../assets/images/portfolio/mtdir.jpg" alt="" />
-            <div class="post-text">
-              <span>
-                <a href>{{ postItem.title }}</a>
-              </span>
-              <div class="summary">
-                {{ postItem.summary }}
+          <transition-group name="fade" tag="ul" class="post">
+          <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index">
+              
+              <img class="image" src="./../assets/images/portfolio/mtdir.jpg" alt="" />
+              <div class="post-text">
+                <span>
+                  <a href>{{ postItem.title }}</a>
+                </span>
+                <div class="summary">
+                  {{ postItem.summary }}
+                </div>
               </div>
-            </div>
           </li>
-        </ul>
+          </transition-group>       
       </div>
     </div>
   </div>
@@ -34,7 +35,12 @@ export default {
   },
   computed: {
     filteredPosts() {
-      return  this.$store.state.filteredPosts;
+      if (this.Search != "") {
+        this.$store.dispatch("SearchPosts", {
+          search: this.Search.toLowerCase(),
+        });
+      }
+      return this.$store.state.filteredPosts;
     },
   },
   mounted() {
@@ -42,32 +48,7 @@ export default {
   },
   data() {
     return {
-      postItems: [
-        {
-          Title: "Post 1",
-          Class: "post-item home",
-        },
-        {
-          Title: "Post 2",
-          Class: "post-item portfolio",
-        },
-        {
-          Title: "Post 3",
-          Class: "post-item technology",
-        },
-        {
-          Title: "Post 4",
-          Class: "post-item knowledge",
-        },
-        {
-          Title: "Post 5",
-          Class: "post-item algorithms",
-        },
-        {
-          Title: "Post 6",
-          Class: "post-item books",
-        },
-      ],
+      Search: "",
     };
   },
 };
@@ -104,6 +85,7 @@ export default {
   position: absolute;
   margin-top: 15%;
   margin-left: 25%;
+  height: 100%;
 }
 
 .post {
@@ -244,7 +226,14 @@ ul li:hover {
   transition: 300ms;
 }
 
-
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {

@@ -26,7 +26,17 @@ export default new Vuex.Store({
         getPosts(state, posts) {
             state.allPosts = posts;
             state.filteredPosts = posts.posts;
-        }
+        },
+        searchPosts(state, search) {
+
+            var filteredPosts = state.allPosts.posts.filter(function (el) {
+                return el.category.toLowerCase().includes(search.search) ||
+                    el.title.toLowerCase().includes(search.search) ||
+                    el.summary.toLowerCase().includes(search.search);
+
+            });
+            state.filteredPosts = filteredPosts;
+        },
     },
     actions: {
         AddFilter({ commit }, data) {
@@ -43,6 +53,9 @@ export default new Vuex.Store({
                         error: e.response.data.error
                     });
                 });
+        },
+        SearchPosts({ commit }, search) {
+            commit('searchPosts', search);
         }
     },
     getters: {
