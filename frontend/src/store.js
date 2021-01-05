@@ -10,7 +10,8 @@ export default new Vuex.Store({
     state: {
         filter: "",
         allPosts: [],
-        filteredPosts: []
+        filteredPosts: [],
+        currentPost: null
     },
     mutations: {
         addFilter(state, filter) {
@@ -39,7 +40,11 @@ export default new Vuex.Store({
             }
             state.filteredPosts = filteredPosts;
         },
+        getPost(state, data){
+            state.currentPost = data.post;
+        }
     },
+    
     actions: {
         AddFilter({ commit }, data) {
             commit('addFilter', data);
@@ -58,7 +63,21 @@ export default new Vuex.Store({
         },
         SearchPosts({ commit }, search) {
             commit('searchPosts', search);
-        }
+        },
+        GetPost({ commit }, data) {
+            var postId = data.id;
+            axios.get(apiHost + "/posts/" + postId).
+                then((response) => {
+                    if (response.status == 200) {
+                        commit('getPost', { post: response.data });
+                    }
+                }).catch((e) => {
+                    commit('setError', {
+                        error: e.response.data.error
+                    });
+                });
+        },
+
     },
     getters: {
     }

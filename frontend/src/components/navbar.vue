@@ -2,27 +2,27 @@
   <nav class="navbar">
    
     <div class="overview">
-      <h1>Tias Finks</h1>
+      <!-- <h1>Tias Finks</h1> -->
       Curation of thoughts. <br><br>
       Feel free to visit my portfolio here. <br><br>
-      Click on any of the below to filter the blog posts according to the specific criteria.
+      Click on any of the below to filter the blog posts according to the criteria.
 
     </div>
     <ul>
-      <li @click="SetActive">
-        <router-link class="all filter-on" to="/">All</router-link>
+      <li>
+        <a @click="SetActive" class="all filter-on">All</a>
       </li>
-      <li @click="SetActive">
-        <a class="technology">Technology</a>
+      <li>
+        <a @click="SetActive" class="technology">Technology</a>
       </li>
-      <li @click="SetActive">
-        <a class="knowledge">Knowledge</a>
+      <li>
+        <a @click="SetActive" class="knowledge">Knowledge</a>
       </li>
-      <li @click="SetActive">
-        <a class="algorithms">Algorithms</a>
+      <li>
+        <a @click="SetActive" class="algorithms">Algorithms</a>
       </li>
-      <li @click="SetActive">
-        <a class="books">Books</a>
+      <li>
+        <a @click="SetActive" class="books">Books</a>
       </li>
     </ul>
      <div class="icons">

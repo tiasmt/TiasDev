@@ -8,12 +8,11 @@
       </div>
       <div class="post-container">
           <transition-group name="fade" tag="ul" class="post">
-          <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index">
-              
+          <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index"  @click="openPost(postItem)" >
               <img class="image" src="./../assets/images/portfolio/mtdir.jpg" alt="" />
-              <div class="post-text">
+              <div class="post-title">
                 <span>
-                  <a href>{{ postItem.title }}</a>
+                  <div>{{ postItem.title }}</div>
                 </span>
                 <div class="summary">
                   {{ postItem.summary }}
@@ -49,6 +48,13 @@ export default {
       Search: "",
     };
   },
+  methods: {
+    openPost(post) {
+      this.$store.dispatch("GetPost", {
+        id: post.id,
+      });
+    }
+  }
 };
 </script>
 
@@ -88,6 +94,10 @@ export default {
 
 .post {
   margin-top: 1%;
+}
+
+.post-title {
+  color: rgb(31, 29, 29);
 }
 
 li {
