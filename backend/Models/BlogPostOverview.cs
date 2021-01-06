@@ -2,7 +2,7 @@ using System;
 
 namespace backend.Models
 {
-    public class PostOverview
+    public class BlogPostOverview
     {
         public DateTime Date { get; set; }
 

@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using backend.Repository;
+using backend.Services;
 
 namespace backend
 {
@@ -34,7 +36,8 @@ namespace backend
                         builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod();
                     });
             });
-            
+            services.AddScoped<IBlogPostStorage>(storage => new FileBlogPostStorage(@"C:\Temp\BlogPosts\"));
+            services.AddScoped<IBlogPostService, BlogPostService>();
             services.AddControllers();
         }
 

@@ -3,10 +3,9 @@
     <div class="icon-border top-left" @click="$router.go(-1)">
       <span class="icon back"></span>
     </div>
-    <h1>{{CurrentPost.title}}</h1>
-    <h2 class="date">{{CurrentPost.date}}</h2>
-    <div class="content">
-      {{CurrentPost.body}}
+    <div class="title" v-html="title"></div>
+    <div class="date" v-html="date"></div>
+    <div class="content" v-html="body">
     </div>
     <div id="up-button" class="icon-border bottom-right" @click="ScrollToTop()">
       <span class="icon up"></span>
@@ -15,21 +14,30 @@
 </template>
 
 <script>
+let marked = require('marked');
 export default {
   data() {
     return {
-      backToTopButton: null
+      backToTopButton: null,
     };
   },
   computed: {
-  CurrentPost() {
+    CurrentPost() {
       return this.$store.state.currentPost;
     },
+    title() {
+      return marked(this.$store.state.currentPost.title);
+    },
+    date() {
+      return marked(this.$store.state.currentPost.date);
+    },
+    body() {
+      return marked(this.$store.state.currentPost.body);
+    }
   },
   mounted() {
     this.backToTopButton = document.getElementById("up-button");
     window.addEventListener("scroll", this.HandleScroll);
-
   },
   destroyed() {
     window.removeEventListener("scroll", this.HandleScroll);
@@ -54,13 +62,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
+.title {
   margin-top: 5%;
   margin-left: 10%;
   margin-bottom: 4%;
   text-transform: uppercase;
   float: left;
-  font-size: 140%;
+  font-size: 150%;
+  color: rgb(53, 52, 52);
 }
 
 .date {
