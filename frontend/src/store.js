@@ -2,7 +2,7 @@ import axios from 'axios';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { apiHost } from "@/main.js";
-// import router from './router'
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -70,6 +70,7 @@ export default new Vuex.Store({
                 then((response) => {
                     if (response.status == 200) {
                         commit('getPost', { post: response.data });
+                        router.push({path: '/Post/' + postId });
                     }
                 }).catch((e) => {
                     commit('setError', {

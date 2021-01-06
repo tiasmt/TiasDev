@@ -1,53 +1,12 @@
 <template>
   <div>
-    <div class="icon-border top-left">
-      <span class="icon back" @click="$router.go(-1)"></span>
+    <div class="icon-border top-left" @click="$router.go(-1)">
+      <span class="icon back"></span>
     </div>
-    <h1>Starting a blog</h1>
-    <h2 class="date">01/01/2020</h2>
+    <h1>{{CurrentPost.title}}</h1>
+    <h2 class="date">{{CurrentPost.date}}</h2>
     <div class="content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus qui
-      sequi rem non aperiam veritatis. Nisi, aspernatur doloribus quaerat
-      doloremque quibusdam nemo nihil sunt aperiam, beatae odio et vel soluta.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae maxime
-      nulla quas dolor eius quaerat alias quasi laborum similique, amet, ullam
-      distinctio nisi fuga architecto! Eveniet voluptas laudantium quo iure!
-      <br><br>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-      tempore aspernatur esse, et velit cupiditate blanditiis officia magni
-      praesentium placeat id tenetur earum amet, iste, aliquid repellendus
-      suscipit odio perferendis? Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Eveniet deserunt non magnam. Earum labore blanditiis
-      repellendus ad nesciunt explicabo nemo culpa accusamus, ut reiciendis
-      repudiandae, nostrum porro ea, est voluptate! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Voluptatem provident blanditiis similique
-      soluta temporibus tempora. Laboriosam explicabo, corrupti exercitationem
-      amet illo voluptatem ipsam eligendi sit laudantium culpa repudiandae
-      doloremque illum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Voluptatem totam natus eum? Molestiae dolorem fugit alias atque reiciendis
-      iste a libero, voluptatibus, nostrum aut, quo nesciunt quas omnis sunt
-      quasi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-      totam natus eum? Molestiae dolorem fugit alias atque reiciendis iste a
-      libero, voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi?
-      <br><br>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem totam
-      natus eum? Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
-      Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
-      Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
-      Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
-      Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi? Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Voluptatem totam natus eum?
-      Molestiae dolorem fugit alias atque reiciendis iste a libero,
-      voluptatibus, nostrum aut, quo nesciunt quas omnis sunt quasi?
+      {{CurrentPost.body}}
     </div>
     <div id="up-button" class="icon-border bottom-right" @click="ScrollToTop()">
       <span class="icon up"></span>
@@ -59,12 +18,18 @@
 export default {
   data() {
     return {
-      backToTopButton: null,
+      backToTopButton: null
     };
+  },
+  computed: {
+  CurrentPost() {
+      return this.$store.state.currentPost;
+    },
   },
   mounted() {
     this.backToTopButton = document.getElementById("up-button");
     window.addEventListener("scroll", this.HandleScroll);
+
   },
   destroyed() {
     window.removeEventListener("scroll", this.HandleScroll);
