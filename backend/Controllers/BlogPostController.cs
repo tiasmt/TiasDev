@@ -25,7 +25,7 @@ namespace backend.Controllers
         public IEnumerable<BlogPostOverview> GetAll()
         {
             // return _postsOverview;
-            return _blogPostService.GetAllBlogPosts();
+            return _blogPostService.GetAllBlogPosts().Reverse();
         }
 
         [HttpGet("{id}")]
