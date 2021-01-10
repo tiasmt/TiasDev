@@ -1,29 +1,43 @@
 <template>
   <div>
-    <div class="icon-border top-left" @click="$router.go(-1)">
-      <span class="icon back"></span>
-    </div>
-    <div class="title" v-html="title"></div>
-    <div class="date" v-html="date"></div>
-    <div class="content" v-html="body">
-    </div>
-    <div id="up-button" class="icon-border bottom-right" @click="ScrollToTop()">
-      <span class="icon up"></span>
+    <div v-if="loading" class="loader"><bounceloader></bounceloader></div>
+    <div v-else>
+      <div class="icon-border top-left" @click="$router.go(-1)">
+        <span class="icon back"></span>
+      </div>
+      <img class="image" :src="imageSource" alt="" />
+      <div class="title" v-if="title" v-html="title"></div>
+      <div class="date" v-if="date" v-html="date"></div>
+      <div class="content" v-if="body" v-html="body"></div>
+      <div
+        id="up-button"
+        class="icon-border bottom-right"
+        @click="ScrollToTop()"
+      >
+        <span class="icon up"></span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-let marked = require('marked');
+let marked = require("marked");
+import bounceloader from "./../components/bounceloader";
 export default {
+  components: {
+    bounceloader,
+  },
   data() {
     return {
       backToTopButton: null,
     };
   },
   computed: {
-    CurrentPost() {
-      return this.$store.state.currentPost;
+    loading() {
+      return this.$store.state.loading;
+    },
+    imageSource() {
+      return this.$store.state.currentPost.imageURL;
     },
     title() {
       return marked(this.$store.state.currentPost.title);
@@ -33,7 +47,7 @@ export default {
     },
     body() {
       return marked(this.$store.state.currentPost.body);
-    }
+    },
   },
   mounted() {
     this.backToTopButton = document.getElementById("up-button");
@@ -58,17 +72,33 @@ export default {
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     },
   },
+  created() {
+    if (this.$store.state.title == null) {
+      var url = window.location.href;
+      var postId = url.charAt(url.length - 1);
+      this.$store.dispatch("SetPost", {
+        id: postId,
+      });
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.image {
+  float: left;
+  margin-top: 5%;
+  height: 150px;
+  border-radius: 50%;
+  margin-left: 10%;
+}
 .title {
   margin-top: 5%;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-bottom: 4%;
   text-transform: uppercase;
   float: left;
-  font-size: 150%;
+  font-size: 140%;
   color: rgb(53, 52, 52);
 }
 
@@ -83,7 +113,7 @@ export default {
 
 .content {
   margin-left: 10%;
-  font-size: 70%;
+  font-size: 65%;
   float: left;
 }
 
@@ -132,5 +162,11 @@ export default {
   mask: url("../assets/icons/up-arrow.svg");
   margin-left: 20%;
   margin-top: 20%;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 </style>

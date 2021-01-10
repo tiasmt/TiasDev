@@ -11,7 +11,8 @@ export default new Vuex.Store({
         filter: "",
         allPosts: [],
         filteredPosts: [],
-        currentPost: null
+        currentPost: null,
+        loading: true
     },
     mutations: {
         addFilter(state, filter) {
@@ -23,11 +24,13 @@ export default new Vuex.Store({
                     return el.category == filter.filter
                 });
                 state.filteredPosts = filteredPosts;
+                state.loading = false;
             }
         },
         getPosts(state, posts) {
             state.allPosts = posts;
             state.filteredPosts = posts.posts;
+            state.loading = false;
         },
         searchPosts(state, search) {
             if (state.allPosts.posts) {
@@ -39,9 +42,15 @@ export default new Vuex.Store({
                 });
             }
             state.filteredPosts = filteredPosts;
+            state.loading = false;
         },
         getPost(state, data){
             state.currentPost = data.post;
+            state.loading = false;
+        },
+        setPost(state, data){
+            state.currentPost = data.post;
+            state.loading = false;
         }
     },
     
@@ -71,6 +80,20 @@ export default new Vuex.Store({
                     if (response.status == 200) {
                         commit('getPost', { post: response.data });
                         router.push({path: '/Post/' + postId });
+                    }
+                }).catch((e) => {
+                    commit('setError', {
+                        error: e.response.data.error
+                    });
+                });
+        },
+        SetPost({ commit }, data) {
+            var postId = data.id;
+            axios.get(apiHost + "/posts/" + postId).
+                then((response) => {
+                    if (response.status == 200) {
+                        console.log("hit");
+                        commit('setPost', { post: response.data });
                     }
                 }).catch((e) => {
                     commit('setError', {

@@ -11,6 +11,7 @@ namespace backend.Repository
         private const string PostId = "PostId:";
         private const string Category = "Category:";
         private const string Title = "Title:";
+        private const string ImageURL = "ImageURL:";
         private const string Date = "Date:";
         private const string Summary = "Summary:";
         private const string Body = "Body:";
@@ -34,7 +35,8 @@ namespace backend.Repository
                     post.Id = int.Parse(reader.ReadLine().Substring(PostId.Length));
                     post.Category = reader.ReadLine().Substring(Category.Length);
                     post.Title = reader.ReadLine().Substring(Title.Length);
-                    post.Date = DateTime.Parse(reader.ReadLine().Substring(Date.Length));
+                    post.ImageURL = reader.ReadLine().Substring(ImageURL.Length);
+                    post.Date = (reader.ReadLine().Substring(Date.Length));
                     post.Summary = reader.ReadLine().Substring(Summary.Length);
                     posts.Add(post);
                 }
@@ -53,9 +55,10 @@ namespace backend.Repository
                 post.Id = int.Parse(reader.ReadLine().Substring(PostId.Length));
                 post.Category = reader.ReadLine().Substring(Category.Length);
                 post.Title = reader.ReadLine().Substring(Title.Length);
-                post.Date = DateTime.Parse(reader.ReadLine().Substring(Date.Length));
+                post.ImageURL = reader.ReadLine().Substring(ImageURL.Length);
+                post.Date = (reader.ReadLine().Substring(Date.Length));
                 post.Summary = reader.ReadLine().Substring(Summary.Length);
-                post.Body = reader.ReadLine().Substring(Body.Length);
+                post.Body = reader.ReadToEnd().Substring(Body.Length);
                 return post;
             }
         }

@@ -1,7 +1,8 @@
 <template lang="html">
   <div>
     <navbar></navbar>
-    <div class="content">
+    <div v-if="loading" class="loader"><bounceloader></bounceloader></div>
+    <div v-else class="content">
       <div class="search-container">
         <input v-model="Search" type="text" placeholder="Search..." />
         <div class="search"></div>
@@ -9,7 +10,7 @@
       <div class="post-container">
           <transition-group name="fade" tag="ul" class="post">
           <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index"  @click="openPost(postItem)" >
-              <img class="image" src="./../assets/images/portfolio/mtdir.jpg" alt="" />
+              <img class="image" :src="postItem.imageURL" alt="" />
               <div class="post-title">
                 <span>
                   <div>{{ postItem.title }}</div>
@@ -27,12 +28,17 @@
 
 <script>
 import navbar from "./../components/navbar";
+import bounceloader from "./../components/bounceloader";
 export default {
   name: "Home",
   components: {
     navbar,
+    bounceloader,
   },
   computed: {
+    loading() {
+      return this.$store.state.loading;
+    },
     filteredPosts() {
       this.$store.dispatch("SearchPosts", {
         search: this.Search.toLowerCase(),
@@ -53,8 +59,8 @@ export default {
       this.$store.dispatch("GetPost", {
         id: post.id,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -88,8 +94,7 @@ export default {
 .post-container {
   position: absolute;
   margin-top: 15%;
-  margin-left: 25%;
-  height: 100%;
+  margin-left: 22%;
 }
 
 .post {
@@ -221,7 +226,8 @@ ul li:hover {
 
 .summary {
   color: rgb(58, 54, 54);
-  font-size: 80%;
+  margin-top: 2%;
+  font-size: 70%;
 }
 
 .image {
@@ -241,6 +247,12 @@ ul li:hover {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 60%;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
