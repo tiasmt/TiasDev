@@ -262,7 +262,17 @@ ul li:hover {
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 321px) {
-  /* Styles */
+  .search-container {
+    position: absolute;
+    margin-left: 0%;
+    top: 38%;
+  }
+
+  .post-container {
+    position: absolute;
+    margin-top: 88%;
+    margin-left: 0%;
+  }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -272,7 +282,9 @@ ul li:hover {
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Styles */
+  .post-container {
+    margin-top: 20%;
+  }
 }
 
 /* iPads (landscape) ----------- */

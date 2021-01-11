@@ -106,15 +106,16 @@ export default {
   float: right;
   position: relative;
   color: rgba(68, 65, 65, 0.72);
-  font-size: 60%;
+  font-size: 55%;
   margin-right: 15%;
-  margin-top: 12%;
+  margin-top: 20%;
 }
 
 .content {
   margin-left: 10%;
   font-size: 65%;
   float: left;
+  margin-top: 5%;
 }
 
 .icon-border {
@@ -168,5 +169,83 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  * {
+    font-size: 25px;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  * {
+    font-size: 23px;
+  }
+
+  .title {
+    font-size: 95%;
+    margin-top: 15%;
+  }
+
+  .date {
+    margin-top: 5%;
+  }
+
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+   * {
+    font-size: 25px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  * {
+    font-size: 25px;
+  }
+
+    .date {
+    margin-top: 20%;
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  * {
+    font-size: 25px;
+  }
+
+  .title {
+    margin-top: 10%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  * {
+    font-size: 26px;
+  }
+
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
 }
 </style>

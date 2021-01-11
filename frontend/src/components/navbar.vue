@@ -38,25 +38,24 @@
 
 <script>
 export default {
-   data() {
-    return {
-    };
+  data() {
+    return {};
   },
-   methods: {
-      SetActive(event) {
-        var list = document.getElementsByTagName("LI");
-        var filter = event.target.innerText.toLowerCase();
-        list.forEach(element => {
-          if(element.firstChild.classList.contains("filter-on"))
-            element.firstChild.classList.remove("filter-on");
-        });
-        var element = event.target; 
-        element.classList.add("filter-on");
-        this.$store.dispatch("AddFilter", {
-        filter: filter
+  methods: {
+    SetActive(event) {
+      var list = document.getElementsByTagName("LI");
+      var filter = event.target.innerText.toLowerCase();
+      list.forEach((element) => {
+        if (element.firstChild.classList.contains("filter-on"))
+          element.firstChild.classList.remove("filter-on");
       });
-      }
-   }
+      var element = event.target;
+      element.classList.add("filter-on");
+      this.$store.dispatch("AddFilter", {
+        filter: filter,
+      });
+    },
+  },
 };
 </script>
 
@@ -162,5 +161,148 @@ img {
 }
 .books::before {
   background-color: rgb(47, 47, 46);
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  * {
+    font-size: 16px;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  img {
+    margin-left: 27%;
+  }
+
+  .overview {
+    margin-top: 5%;
+    margin-bottom: 0%;
+  }
+
+  .navbar {
+    position: fixed;
+    width: 100%;
+    border-right: 1px solid rgba(104, 104, 104, 0.1);
+    font-size: 65%;
+  }
+
+  ul {
+    margin-top: 0%;
+    top: 5%;
+    left: -4%;
+    height: 8%;
+    border-bottom: 1px solid rgba(12, 12, 12, 0.05);
+    width: 100%;
+  }
+
+  li {
+    margin-top: 2%;
+    float: left;
+    margin-left: 10px;
+    
+  }
+  .filter-on::before {
+    width: 0px;
+    height: 0px;
+  }
+  .filter-on::after {
+    width: 20px;
+    height: 2px;
+    content: " ";
+    display: block;
+    margin-top: 3px;
+    margin-left: 25%;
+  }
+
+  a, a:active {
+    margin-left: 0px;
+    color: rgba(16, 15, 15, 0.481);
+  }
+
+    .filter-on {
+    color: black;
+    font-size: 105%;
+  }
+
+  .all::after {
+    background-color: rgb(236, 75, 75);
+    width: 8px;
+  }
+  .portfolio::after {
+    background-color: rgb(75, 158, 236);
+  }
+  .technology::after {
+    background-color: rgb(136, 40, 40);
+  }
+  .knowledge::after {
+    background-color: rgb(78, 163, 106);
+  }
+  .algorithms::after {
+    background-color: rgb(207, 140, 52);
+    width: 30px;
+  }
+  .books::after {
+    background-color: rgb(47, 47, 46);
+  }
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  * {
+    font-size: 20px;
+  }
+
+  .icons {
+    height: 4%;
+  }
+
+  img {
+    margin-left: 27%;
+  }
+
+  .overview {
+    margin-top: 25%;
+    font-size: 90%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
 }
 </style>
