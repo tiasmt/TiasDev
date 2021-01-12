@@ -286,7 +286,7 @@ ul li:hover {
     cursor: pointer;
     &::after {
       content: " ";
-      width: 80%;
+      width: 65%;
       height: 1px;
       display: inline-block;
       background: #29282812;
