@@ -258,21 +258,59 @@ ul li:hover {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* Styles */
+  * {
+    font-size: 16px;
+  }
+
+  .search-container {
+    position: relative;
+    margin-left: 20%;
+    margin-top: 8%;
+    input {
+      width: 50%;
+      height: 30px;
+      font-size: 13px;
+    }
+  }
+
+  .post-container {
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+
+  .post-item {
+    margin-top: 8%;
+    width: 75vw;
+    padding: 0px;
+    margin-left: 0%;
+    cursor: pointer;
+    &::after {
+      content: " ";
+      width: 80%;
+      height: 1px;
+      display: inline-block;
+      background: #29282812;
+    }
+  }
+
+  .post-title {
+    margin-left: 25%;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .image {
+    height: 40px;
+    width: 40px;
+    float: left;
+  }
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 321px) {
-  .search-container {
-    position: absolute;
-    margin-left: 0%;
-    top: 38%;
-  }
-
-  .post-container {
-    position: absolute;
-    margin-top: 88%;
-    margin-left: 0%;
-  }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -282,9 +320,6 @@ ul li:hover {
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .post-container {
-    margin-top: 20%;
-  }
 }
 
 /* iPads (landscape) ----------- */
@@ -299,7 +334,6 @@ ul li:hover {
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
-  /* Styles */
 }
 
 /* Large screens ----------- */

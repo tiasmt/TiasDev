@@ -165,71 +165,69 @@ img {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  /* Styles */
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width: 321px) {
   * {
     font-size: 16px;
   }
 
-  .icons {
-    display: none;
-  }
-
-  img {
-    margin-left: 27%;
-  }
-
-  .overview {
-    margin-top: 5%;
-    margin-bottom: 0%;
-  }
-
   .navbar {
-    position: fixed;
-    width: 100%;
-    border-right: 1px solid rgba(104, 104, 104, 0.1);
-    font-size: 65%;
+    width: 99%;
+    position: relative;
+    height: 100%;
   }
 
-  ul {
-    margin-top: 0%;
-    top: 5%;
-    left: -4%;
-    height: 8%;
-    border-bottom: 1px solid rgba(12, 12, 12, 0.05);
-    width: 100%;
-  }
-
-  li {
-    margin-top: 2%;
-    float: left;
-    margin-left: 10px;
-    
-  }
   .filter-on::before {
     width: 0px;
     height: 0px;
+    margin-left: 0px;
   }
+
   .filter-on::after {
-    width: 20px;
+    width: 18px;
     height: 2px;
+    margin-left: 0px;
     content: " ";
     display: block;
-    margin-top: 3px;
-    margin-left: 25%;
+    margin-top: 3%;
+    margin-left: 35%;
   }
 
-  a, a:active {
-    margin-left: 0px;
-    color: rgba(16, 15, 15, 0.481);
-  }
-
-    .filter-on {
+  .filter-on {
+    font-size: 100%;
     color: black;
-    font-size: 105%;
+  }
+
+  ul {
+    left: 0;
+    top: 0;
+    padding-left: 15%;
+    padding-bottom: 8%;
+    border-bottom: 1px solid rgba(211, 210, 210, 0.296);
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+    margin-right: 3%;
+  }
+
+  a {
+    font-size: 75%;
+    color: rgba(0, 0, 0, 0.481);
+  }
+
+  li a::before {
+    height: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    float: left;
+    content: " ";
+  }
+
+  li a:hover::before {
+    width: 0px;
+    height: 0px;
+    content: " ";
+    margin-left: 0px;
   }
 
   .all::after {
@@ -247,17 +245,104 @@ img {
   }
   .algorithms::after {
     background-color: rgb(207, 140, 52);
-    width: 30px;
   }
   .books::after {
     background-color: rgb(47, 47, 46);
   }
 
+  .icons {
+    display: none;
+  }
+
+  img {
+    margin-left: 25%;
+    height: 90%;
+  }
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width: 320px) {
-  /* Styles */
+  * {
+    font-size: 14px;
+  }
+
+  .navbar {
+    width: 99%;
+  }
+
+  .filter-on::before {
+    width: 0px;
+    height: 0px;
+    margin-left: 0px;
+  }
+
+  .filter-on::after {
+    width: 18px;
+    height: 2px;
+    margin-left: 0px;
+    content: " ";
+    display: block;
+    margin-top: 3%;
+    margin-left: 35%;
+  }
+
+  .filter-on {
+    font-size: 100%;
+    color: black;
+  }
+
+  ul {
+    left: 0;
+    top: 0;
+    padding-left: 8%;
+    height: 10%;
+    border-bottom: 1px solid rgba(211, 210, 210, 0.296);
+  }
+
+  li {
+    float: left;
+    margin-right: 3%;
+  }
+
+  a {
+    font-size: 70%;
+    color: rgba(0, 0, 0, 0.481);
+  }
+
+  li a::before {
+    height: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    float: left;
+    content: " ";
+  }
+
+  li a:hover::before {
+    width: 0px;
+    height: 0px;
+    content: " ";
+    margin-left: 0px;
+  }
+
+  .all::after {
+    background-color: rgb(236, 75, 75);
+    width: 8px;
+  }
+  .portfolio::after {
+    background-color: rgb(75, 158, 236);
+  }
+  .technology::after {
+    background-color: rgb(136, 40, 40);
+  }
+  .knowledge::after {
+    background-color: rgb(78, 163, 106);
+  }
+  .algorithms::after {
+    background-color: rgb(207, 140, 52);
+  }
+  .books::after {
+    background-color: rgb(47, 47, 46);
+  }
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -272,27 +357,10 @@ img {
 
 /* iPads (portrait) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  * {
-    font-size: 20px;
-  }
-
-  .icons {
-    height: 4%;
-  }
-
-  img {
-    margin-left: 27%;
-  }
-
-  .overview {
-    margin-top: 25%;
-    font-size: 90%;
-  }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
-  /* Styles */
 }
 
 /* Large screens ----------- */
