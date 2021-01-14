@@ -9,7 +9,7 @@
       </div>
       <div class="post-container">
           <transition-group name="fade" tag="ul" class="post">
-          <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index"  @click="openPost(postItem)" >
+          <li v-for="(postItem, index) in filteredPosts" :class="postItem.category" class="post-item" :key="index"  :id=postItem.id @click="openPost(postItem)" >
               <img class="image" :src="postItem.imageURL" alt="" />
               <div class="post-title">
                 <span>
@@ -59,6 +59,13 @@ export default {
       this.$store.dispatch("GetPost", {
         id: post.id,
       });
+    },
+    HandleScroll() {
+      if (window.pageYOffset >= 60) {
+        this.filters.classList.add("opaque");
+      } else {
+        this.filters.classList.remove("opaque");
+      }
     },
   },
 };
@@ -283,6 +290,7 @@ ul li:hover {
     width: 75vw;
     padding: 0px;
     margin-left: 0%;
+    position: relative;
     cursor: pointer;
     &::after {
       content: " ";

@@ -8,7 +8,7 @@
       Click on any of the below to filter the blog posts according to the criteria.
 
     </div>
-    <ul>
+    <ul id="filters" class="sticky-navbar">
       <li>
         <a @click="SetActive" class="all filter-on">All</a>
       </li>
@@ -39,7 +39,10 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      filters: null,
+      sticky: null,
+    };
   },
   methods: {
     SetActive(event) {
@@ -55,7 +58,23 @@ export default {
         filter: filter,
       });
     },
+    HandleScroll() {
+      if (window.pageYOffset >= this.sticky) {
+        this.filters.classList.add("sticky");
+      } else {
+        this.filters.classList.remove("sticky");
+      }
+    },
   },
+  mounted() {
+      console.log("test");
+      window.addEventListener("scroll", this.HandleScroll);
+      this.filters = document.getElementById("filters");
+      this.sticky = this.filters.offsetTop;
+    },
+    destroyed() {
+      window.removeEventListener("scroll", this.HandleScroll);
+    },
 };
 </script>
 
@@ -258,6 +277,21 @@ img {
     margin-left: 25%;
     height: 90%;
   }
+
+  .sticky-navbar {
+    transition: all 1s;
+    background: transparent;
+    background: rgb(255, 255, 255);
+  }
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    margin-top: 0px;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    background: rgba(218, 215, 215, 0.289);
+    z-index:999;
+  }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -342,6 +376,20 @@ img {
   }
   .books::after {
     background-color: rgb(47, 47, 46);
+  }
+
+  .sticky-navbar {
+    transition: all 300ms;
+    background: transparent;
+    opacity: 0;
+  }
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(33, 30, 30);
   }
 }
 
