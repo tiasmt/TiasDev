@@ -337,11 +337,41 @@ ul li:hover {
 
 /* iPads (portrait) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* Styles */
+    .search-container {
+      top: 4%;
+    }
+    .post-container {
+    margin-top: 15%;
+    margin-left: 25%;
+  }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
+  .post-container {
+    margin-top: 10%;
+    margin-left: 28%;
+  }
+
+  .image {
+      height: 42px;
+      width: 42px;
+
+  }
+
+  .post-item {
+  margin-top: 2%;
+  font-size: 70%;
+  width: 50vw;
+  cursor: pointer;
+  &::after {
+    content: " ";
+    width: 60%;
+    height: 1px;
+    display: inline-block;
+    background: #29282812;
+  }
+}
 }
 
 /* Large screens ----------- */

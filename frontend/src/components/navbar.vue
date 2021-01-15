@@ -67,7 +67,6 @@ export default {
     },
   },
   mounted() {
-      console.log("test");
       window.addEventListener("scroll", this.HandleScroll);
       this.filters = document.getElementById("filters");
       this.sticky = this.filters.offsetTop;
@@ -289,7 +288,7 @@ img {
     opacity: 1;
     position: fixed;
     width: 100%;
-    background: rgba(218, 215, 215, 0.289);
+    background: rgba(255, 255, 255, 0.938);
     z-index:999;
   }
 }
