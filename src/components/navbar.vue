@@ -218,7 +218,7 @@ img {
   ul {
     left: 0;
     top: 0;
-    padding-left: 10%;
+    padding-left: 18%;
     padding-bottom: 8%;
     border-bottom: 1px solid rgba(211, 210, 210, 0.296);
     overflow: hidden;
@@ -329,7 +329,7 @@ img {
   ul {
     left: 0;
     top: 0;
-    padding-left: 0%;
+    padding-left: 10%;
     height: 10%;
     border-bottom: 1px solid rgba(211, 210, 210, 0.296);
   }
