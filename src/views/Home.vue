@@ -315,6 +315,12 @@ ul li:hover {
     width: 40px;
     float: left;
   }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 43%;
+  }
 }
 
 /* Smartphones (landscape) ----------- */

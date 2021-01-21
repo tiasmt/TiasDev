@@ -67,13 +67,13 @@ export default {
     },
   },
   mounted() {
-      window.addEventListener("scroll", this.HandleScroll);
-      this.filters = document.getElementById("filters");
-      this.sticky = this.filters.offsetTop;
-    },
-    destroyed() {
-      window.removeEventListener("scroll", this.HandleScroll);
-    },
+    window.addEventListener("scroll", this.HandleScroll);
+    this.filters = document.getElementById("filters");
+    this.sticky = this.filters.offsetTop;
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.HandleScroll);
+  },
 };
 </script>
 
@@ -191,6 +191,7 @@ img {
     width: 99%;
     position: relative;
     height: 100%;
+    border-right: 0px solid rgba(104, 104, 104, 0.1);
   }
 
   .filter-on::before {
@@ -217,7 +218,7 @@ img {
   ul {
     left: 0;
     top: 0;
-    padding-left: 15%;
+    padding-left: 10%;
     padding-bottom: 8%;
     border-bottom: 1px solid rgba(211, 210, 210, 0.296);
     overflow: hidden;
@@ -289,7 +290,7 @@ img {
     position: fixed;
     width: 100%;
     background: rgba(255, 255, 255, 0.938);
-    z-index:999;
+    z-index: 999;
   }
 }
 
@@ -301,6 +302,7 @@ img {
 
   .navbar {
     width: 99%;
+    border-right: 0px solid rgba(104, 104, 104, 0.1);
   }
 
   .filter-on::before {
@@ -327,7 +329,7 @@ img {
   ul {
     left: 0;
     top: 0;
-    padding-left: 8%;
+    padding-left: 0%;
     height: 10%;
     border-bottom: 1px solid rgba(211, 210, 210, 0.296);
   }
