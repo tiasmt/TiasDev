@@ -61,7 +61,7 @@ export default {
       });
     },
     HandleScroll() {
-      if (window.pageYOffset >= 60) {
+      if (window.pageYOffset >= 58) {
         this.filters.classList.add("opaque");
       } else {
         this.filters.classList.remove("opaque");
