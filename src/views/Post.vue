@@ -91,6 +91,7 @@ export default {
   height: 150px;
   border-radius: 50%;
   margin-left: 10%;
+  width: 150px;
 }
 .title {
   margin-top: 5%;
