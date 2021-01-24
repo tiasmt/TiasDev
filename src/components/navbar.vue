@@ -78,6 +78,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+*:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
 .navbar {
   position: fixed;
   height: 100vh;
