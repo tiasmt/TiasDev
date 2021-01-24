@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 
-*:focus {
+* {
     -webkit-tap-highlight-color: transparent;
     outline: none;
 }
